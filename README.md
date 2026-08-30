@@ -19,9 +19,9 @@ hearts, confetti, and optional background music.
   `<div class="letter-card">` (search for `EDIT THIS LETTER`). Make it yours!
 - **Photos**: drop your own photos into the `assets` folder, named
   `photo1.jpg` through `photo6.jpg` (matching each file's extension in
-  `index.html` if it isn't a `.jpg`). Five of Tanzil's photos are already in
-  place (`photo1.jpg`–`photo5.jpg`); the 6th slot is still a placeholder —
-  add fewer or more by editing the `.gallery-grid` in `index.html`.
+  `index.html` if it isn't a `.jpg`). All 6 slots are already filled with
+  Tanzil's photos — swap any of them out by replacing the file, or add more
+  by editing the `.gallery-grid` in `index.html`.
 - **Music**: add an mp3 file to `assets/song.mp3` and it'll be available via
   the 🎵 button in the bottom-right corner once the romantic section loads
   (browsers block autoplay with sound, so it only plays after the button is
