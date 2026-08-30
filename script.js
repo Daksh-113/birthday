@@ -1,3 +1,48 @@
+// ===================== PASSWORD GATE =====================
+// Not real security (client-side, viewable in page source) — just a simple
+// lock to keep casual link-sharing from exposing this to random visitors.
+const GATE_PASSWORD = "0509";
+const GATE_STORAGE_KEY = "bday-unlocked-tanzil";
+
+const gateScreen = document.getElementById("gate");
+const gateForm = document.getElementById("gate-form");
+const gateInput = document.getElementById("gate-input");
+const gateError = document.getElementById("gate-error");
+const gateContent = document.querySelector(".gate-content");
+const introScreen = document.getElementById("intro");
+
+function unlockSite(persist) {
+  if (persist) {
+    try { localStorage.setItem(GATE_STORAGE_KEY, "true"); } catch (e) {}
+  }
+  gateScreen.classList.remove("active");
+  introScreen.classList.add("active");
+  document.body.classList.remove("gate-phase");
+  document.body.classList.add("fun-phase");
+  startIntroSequence();
+}
+
+let alreadyUnlocked = false;
+try { alreadyUnlocked = localStorage.getItem(GATE_STORAGE_KEY) === "true"; } catch (e) {}
+
+if (alreadyUnlocked) {
+  unlockSite(false);
+} else {
+  gateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (gateInput.value.trim() === GATE_PASSWORD) {
+      unlockSite(true);
+    } else {
+      gateError.hidden = false;
+      gateContent.classList.remove("shake");
+      void gateContent.offsetWidth; // restart the animation
+      gateContent.classList.add("shake");
+      gateInput.value = "";
+      gateInput.focus();
+    }
+  });
+}
+
 // ===================== FUN INTRO SEQUENCE =====================
 const loadingLines = [
   "Loading candles... 🕯️",
@@ -13,32 +58,9 @@ const loadingLineEl = document.getElementById("loading-line");
 const loadingFillEl = document.getElementById("loading-fill");
 const surpriseBtn = document.getElementById("surprise-btn");
 const hintEl = document.getElementById("hint");
-
-let lineIndex = 0;
-let progress = 0;
-
-const lineTimer = setInterval(() => {
-  lineIndex = (lineIndex + 1) % loadingLines.length;
-  loadingLineEl.textContent = loadingLines[lineIndex];
-}, 900);
-
-const progressTimer = setInterval(() => {
-  progress += Math.random() * 12 + 6;
-  if (progress >= 100) {
-    progress = 100;
-    loadingFillEl.style.width = "100%";
-    loadingLineEl.textContent = "Okay, ready! 🎉";
-    clearInterval(progressTimer);
-    clearInterval(lineTimer);
-    surpriseBtn.hidden = false;
-  } else {
-    loadingFillEl.style.width = progress + "%";
-  }
-}, 500);
-
-// Floating background emojis on the fun screen
-const funEmojis = ["🎈", "🎉", "🎊", "🍰", "⭐"];
 const floatingContainer = document.getElementById("floating-emojis");
+const funEmojis = ["🎈", "🎉", "🎊", "🍰", "⭐"];
+
 function spawnFunEmoji() {
   const span = document.createElement("span");
   span.textContent = funEmojis[Math.floor(Math.random() * funEmojis.length)];
@@ -48,7 +70,33 @@ function spawnFunEmoji() {
   floatingContainer.appendChild(span);
   setTimeout(() => span.remove(), duration * 1000);
 }
-setInterval(spawnFunEmoji, 500);
+
+// Runs once, right after the password gate is unlocked.
+function startIntroSequence() {
+  let lineIndex = 0;
+  let progress = 0;
+
+  const lineTimer = setInterval(() => {
+    lineIndex = (lineIndex + 1) % loadingLines.length;
+    loadingLineEl.textContent = loadingLines[lineIndex];
+  }, 900);
+
+  const progressTimer = setInterval(() => {
+    progress += Math.random() * 12 + 6;
+    if (progress >= 100) {
+      progress = 100;
+      loadingFillEl.style.width = "100%";
+      loadingLineEl.textContent = "Okay, ready! 🎉";
+      clearInterval(progressTimer);
+      clearInterval(lineTimer);
+      surpriseBtn.hidden = false;
+    } else {
+      loadingFillEl.style.width = progress + "%";
+    }
+  }, 500);
+
+  setInterval(spawnFunEmoji, 500);
+}
 
 // Button dodges the cursor a few times before letting itself be clicked
 let dodgeCount = 0;

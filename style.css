@@ -19,6 +19,7 @@ html, body {
   font-family: 'Poppins', sans-serif;
 }
 
+body.gate-phase { background: linear-gradient(160deg, var(--romantic-bg-1), var(--romantic-bg-2)); }
 body.fun-phase { background: #1a1a2e; }
 body.romantic-phase { background: linear-gradient(160deg, var(--romantic-bg-1), var(--romantic-bg-2)); }
 
@@ -29,6 +30,81 @@ body.romantic-phase { background: linear-gradient(160deg, var(--romantic-bg-1), 
   position: relative;
 }
 .screen.active { display: block; }
+
+/* ================= PASSWORD GATE ================= */
+#gate.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.gate-content {
+  max-width: 360px;
+  padding: 2rem;
+}
+
+.gate-lock {
+  font-size: 2.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.gate-content h1 {
+  font-size: 2.8rem;
+  margin: 0 0 0.6rem;
+  color: var(--romantic-gold);
+}
+
+.gate-hint {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+#gate-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+#gate-input {
+  width: 100%;
+  max-width: 220px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  text-align: center;
+  letter-spacing: 0.3em;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 215, 168, 0.35);
+  color: #fff;
+  outline: none;
+}
+#gate-input:focus {
+  border-color: var(--romantic-accent);
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.25);
+}
+#gate-input::placeholder { color: rgba(255,255,255,0.4); letter-spacing: 0.3em; }
+
+.gate-error {
+  margin-top: 1.2rem;
+  color: var(--romantic-accent);
+  font-size: 0.9rem;
+}
+
+.gate-content.shake { animation: shake 0.4s ease; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
 
 /* ================= INTRO / FUN SCREEN ================= */
 #intro.active {

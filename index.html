@@ -9,10 +9,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Great+Vibes&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="fun-phase">
+<body class="gate-phase">
+
+  <!-- ================= PASSWORD GATE ================= -->
+  <section id="gate" class="screen active">
+    <div class="gate-content">
+      <div class="gate-lock">🔒</div>
+      <h1 class="script-font">For Tanzil</h1>
+      <p class="gate-hint">This one's just for you. Enter the code to open it.</p>
+      <form id="gate-form" autocomplete="off">
+        <input id="gate-input" type="password" inputmode="numeric" placeholder="••••" maxlength="20" autocomplete="off">
+        <button type="submit" class="glow-btn">Unlock</button>
+      </form>
+      <p class="gate-error" id="gate-error" hidden>Not quite — try again 💭</p>
+    </div>
+  </section>
 
   <!-- ================= FUN INTRO SCREEN ================= -->
-  <section id="intro" class="screen active">
+  <section id="intro" class="screen">
     <div class="floating-emojis" id="floating-emojis"></div>
 
     <div class="intro-content">

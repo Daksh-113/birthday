@@ -8,9 +8,16 @@ hearts, confetti, and optional background music throughout.
 
 ## How it works
 
-1. **Fun intro** — a silly fake "loading" sequence with joke lines, then a
+1. **Password gate** — the very first thing anyone sees is a lock screen
+   asking for a 4-digit code (currently `0509`). This is **not real
+   security** — it's a plain client-side check in `script.js`
+   (`GATE_PASSWORD`), viewable by anyone who looks at the page's source. It
+   just keeps the site from being wide open if the link ever gets forwarded
+   or shared somewhere you didn't intend. Once unlocked on a device, it's
+   remembered (via `localStorage`) so it won't ask again on that device.
+2. **Fun intro** — a silly fake "loading" sequence with joke lines, then a
    button that dodges your cursor a few times before you can click it.
-2. **Romantic reveal** — clicking the button triggers a confetti burst and
+3. **Romantic reveal** — clicking the button triggers a confetti burst and
    transitions into a full-screen scrolling story: hero page ("Happy
    Birthday, Tanzil"), then one photo per screen (oldest to newest), an "and
    then it was us" page, and finally the letter. Each page snaps into place
@@ -38,6 +45,10 @@ hearts, confetti, and optional background music throughout.
 - **Colors/fonts**: tweak the CSS variables at the top of `style.css`
   (`--fun-1`, `--fun-2`, `--romantic-accent`, etc).
 - **Jokes**: edit the `loadingLines` array at the top of `script.js`.
+- **Password**: change `GATE_PASSWORD` near the top of `script.js`. If you
+  change it after she's already unlocked the site once on her device, she
+  won't be asked again there (it's remembered) — but a fresh device or
+  browser will need the new one.
 
 ## View it locally
 
