@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Tanzil 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Great+Vibes&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="fun-phase">
+
+  <!-- ================= FUN INTRO SCREEN ================= -->
+  <section id="intro" class="screen active">
+    <div class="floating-emojis" id="floating-emojis"></div>
+
+    <div class="intro-content">
+      <h1 class="wiggle">Hold up... 🎈</h1>
+      <p class="loading-line" id="loading-line">Loading candles... 🕯️</p>
+      <div class="loading-bar"><div class="loading-fill" id="loading-fill"></div></div>
+
+      <button id="surprise-btn" class="dodge-btn" hidden>🎁 Click for your surprise</button>
+      <p class="hint" id="hint" hidden>Okay okay, I'll hold still. Go on, click me. 😄</p>
+    </div>
+  </section>
+
+  <!-- ================= ROMANTIC REVEAL SCREEN ================= -->
+  <section id="romantic" class="screen">
+    <div class="hearts-bg" id="hearts-bg"></div>
+
+    <header class="hero">
+      <h1 class="script-font">Happy Birthday</h1>
+      <h2 class="name script-font">Tanzil 💗</h2>
+      <p class="tagline">Today the world celebrates the best thing that ever happened to me.</p>
+      <button id="confetti-again" class="glow-btn">✨ More confetti, please</button>
+    </header>
+
+    <section class="gallery reveal">
+      <h3>Our Moments 📸</h3>
+      <p class="gallery-hint">(Drop your favorite photos into the <code>assets</code> folder as photo1.jpg – photo6.jpg to fill these in)</p>
+      <div class="gallery-grid">
+        <div class="polaroid" data-label="Add photo1.jpg" style="--r:-6deg"><img src="assets/photo1.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
+        <div class="polaroid" data-label="Add photo2.jpg" style="--r:4deg"><img src="assets/photo2.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
+        <div class="polaroid" data-label="Add photo3.jpg" style="--r:-3deg"><img src="assets/photo3.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
+        <div class="polaroid" data-label="Add photo4.jpg" style="--r:5deg"><img src="assets/photo4.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
+        <div class="polaroid" data-label="Add photo5.jpg" style="--r:-5deg"><img src="assets/photo5.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
+        <div class="polaroid" data-label="Add photo6.jpg" style="--r:3deg"><img src="assets/photo6.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
+      </div>
+    </section>
+
+    <section class="letter-section reveal">
+      <h3>A little something I wrote for you 💌</h3>
+      <!-- EDIT THIS LETTER: make it yours, add your own memories and words -->
+      <div class="letter-card">
+        <p>Tanzil,</p>
+        <p>
+          I could plan the perfect words for weeks and still fall short of what you mean to me.
+          So let me just say it plainly: you make ordinary days feel like something worth
+          remembering. Your laugh, the way you get excited over the smallest things, the way you
+          show up for the people you love — all of it makes me endlessly grateful that I get to
+          know you.
+        </p>
+        <p>
+          Another year older, and somehow even more incredible than before. I hope today gives you
+          even a fraction of the joy you give everyone around you. Here's to more inside jokes,
+          more late-night conversations, more silly memories, and many, many more birthdays
+          together.
+        </p>
+        <p>Happy Birthday, Tanzil. I love you. 💗</p>
+        <p class="signature">Forever yours,<br>Daksh</p>
+      </div>
+    </section>
+
+    <footer>
+      Made with ❤️ by Daksh
+    </footer>
+  </section>
+
+  <!-- Floating music control -->
+  <button id="music-toggle" class="music-btn" title="Toggle music">🎵</button>
+  <audio id="bg-music" loop>
+    <source src="assets/song.mp3" type="audio/mpeg">
+  </audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

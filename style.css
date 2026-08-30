@@ -1,0 +1,342 @@
+:root {
+  --fun-1: #ff9a3c;
+  --fun-2: #ff5e78;
+  --fun-3: #ffd93d;
+  --romantic-bg-1: #2b0a1f;
+  --romantic-bg-2: #4a1030;
+  --romantic-accent: #ff6b9d;
+  --romantic-gold: #ffd7a8;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+body.fun-phase { background: #1a1a2e; }
+body.romantic-phase { background: linear-gradient(160deg, var(--romantic-bg-1), var(--romantic-bg-2)); }
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.screen.active { display: block; }
+
+/* ================= INTRO / FUN SCREEN ================= */
+#intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--fun-1), var(--fun-2) 60%, var(--fun-3));
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 2rem;
+  max-width: 500px;
+}
+
+.intro-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.wiggle { animation: wiggle 1.8s ease-in-out infinite; display: inline-block; }
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.loading-line {
+  font-size: 1.1rem;
+  font-weight: 600;
+  min-height: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.loading-fill {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.dodge-btn {
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  background: #fff;
+  color: var(--fun-2);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.15s ease, left 0.25s ease, top 0.25s ease;
+}
+.dodge-btn:hover { transform: scale(1.05); }
+.dodge-btn.fixed-position {
+  position: fixed;
+  z-index: 5;
+}
+
+.hint {
+  margin-top: 1.2rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.floating-emojis {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.floating-emojis span {
+  position: absolute;
+  bottom: -50px;
+  font-size: 1.8rem;
+  animation: floatUp linear forwards;
+  opacity: 0.9;
+}
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ================= ROMANTIC SCREEN ================= */
+#romantic {
+  color: #fff;
+  padding-bottom: 3rem;
+}
+
+.script-font { font-family: 'Great Vibes', cursive; }
+
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.hearts-bg span {
+  position: absolute;
+  bottom: -60px;
+  color: var(--romantic-accent);
+  font-size: 1.5rem;
+  animation: floatUp linear forwards;
+  opacity: 0.85;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 5rem 1.5rem 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--romantic-gold);
+  text-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+}
+
+.hero .name {
+  font-size: 4.5rem;
+  margin: 0 0 1rem;
+  color: var(--romantic-accent);
+  text-shadow: 0 4px 24px rgba(255, 107, 157, 0.5);
+}
+
+.tagline {
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.glow-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--romantic-accent), var(--romantic-gold));
+  color: #2b0a1f;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(255, 107, 157, 0.6);
+  transition: transform 0.2s ease;
+}
+.glow-btn:hover { transform: scale(1.06); }
+
+.gallery, .letter-section {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.gallery h3, .letter-section h3 {
+  font-size: 1.8rem;
+  color: var(--romantic-gold);
+  margin-bottom: 0.4rem;
+}
+
+.gallery-hint {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-bottom: 2rem;
+}
+.gallery-hint code {
+  background: rgba(255,255,255,0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 0.8rem 0.8rem 1.6rem;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.25s ease;
+  aspect-ratio: 1 / 1.15;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.polaroid:hover { transform: rotate(0deg) scale(1.04); }
+
+.polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  flex: 1;
+}
+
+.polaroid p {
+  color: #333;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 0.4rem 0 0;
+}
+
+.polaroid.no-photo {
+  background: linear-gradient(135deg, #ffe0ec, #ffd7a8);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.polaroid.no-photo::before {
+  content: attr(data-label);
+  color: #a34a63;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+.polaroid.no-photo p { display: none; }
+
+.letter-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 215, 168, 0.3);
+  border-radius: 14px;
+  padding: 2.5rem;
+  text-align: left;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  backdrop-filter: blur(4px);
+}
+
+.letter-card .signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  color: var(--romantic-gold);
+  margin-top: 1.5rem;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  display: none;
+}
+.music-btn.visible { display: block; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .hero .name { font-size: 3rem; }
+  .hero h1 { font-size: 2.2rem; }
+}
