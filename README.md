@@ -22,16 +22,15 @@ hearts, confetti, and optional background music throughout.
   `<div class="letter-card">` (search for `EDIT THIS LETTER`). Make it yours!
 - **Solo photos**: each `<section class="snap-section photo-section">` block
   in `index.html` is one full-screen page. They're currently wired to
-  `assets/photo1.jpg` – `photo6.jpg` in age order (youngest first) with a
-  caption underneath each `<img>`. To add more, copy a block, point it at a
-  new file in `assets/`, and write your own caption — just keep the blocks in
-  chronological order.
+  `assets/photo0.jpg` – `photo8.jpg` in age order (youngest first, ending on
+  a recent photo) with a caption underneath each `<img>`. To add more, copy a
+  block, point it at a new file in `assets/`, and write your own caption —
+  just keep the blocks in chronological order.
 - **"Us together" photos**: the page right before the letter is the
-  `us-section` block, currently pointed at `assets/us1.jpg` (add that file to
-  fill it in). To add more couple photos, copy that block underneath it,
-  naming new files `us2.jpg`, `us3.jpg`, etc. Any block whose image file is
-  missing just shows a "Add a photo here" placeholder, so it's safe to leave
-  extra ones in for later.
+  `us-section` block, pointed at `assets/us1.jpg`. To add more couple
+  photos, copy that block underneath it, naming new files `us2.jpg`,
+  `us3.jpg`, etc. Any block whose image file is missing just shows a "Add a
+  photo here" placeholder, so it's safe to leave extra ones in for later.
 - **Music**: add an mp3 file to `assets/song.mp3` and it'll be available via
   the 🎵 button in the bottom-right corner once the romantic section loads
   (browsers block autoplay with sound, so it only plays after the button is
