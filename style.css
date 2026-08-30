@@ -31,7 +31,7 @@ body.romantic-phase { background: linear-gradient(160deg, var(--romantic-bg-1), 
 .screen.active { display: block; }
 
 /* ================= INTRO / FUN SCREEN ================= */
-#intro {
+#intro.active {
   display: flex;
   align-items: center;
   justify-content: center;
