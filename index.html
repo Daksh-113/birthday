@@ -25,56 +25,94 @@
     </div>
   </section>
 
-  <!-- ================= ROMANTIC REVEAL SCREEN ================= -->
+  <!-- ================= ROMANTIC REVEAL: APPLE-STYLE SCROLL STORY ================= -->
   <section id="romantic" class="screen">
     <div class="hearts-bg" id="hearts-bg"></div>
 
-    <header class="hero">
-      <h1 class="script-font">Happy Birthday</h1>
-      <h2 class="name script-font">Tanzil 💗</h2>
-      <p class="tagline">Today the world celebrates the best thing that ever happened to me.</p>
-      <button id="confetti-again" class="glow-btn">✨ More confetti, please</button>
-    </header>
+    <div class="snap-container" id="snap-container">
 
-    <section class="gallery reveal">
-      <h3>Our Moments 📸</h3>
-      <p class="gallery-hint">(Drop your favorite photos into the <code>assets</code> folder as photo1.jpg – photo6.jpg to fill these in)</p>
-      <div class="gallery-grid">
-        <div class="polaroid" data-label="Add photo1.jpg" style="--r:-6deg"><img src="assets/photo1.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
-        <div class="polaroid" data-label="Add photo2.jpg" style="--r:4deg"><img src="assets/photo2.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
-        <div class="polaroid" data-label="Add photo3.jpg" style="--r:-3deg"><img src="assets/photo3.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
-        <div class="polaroid" data-label="Add photo4.jpg" style="--r:5deg"><img src="assets/photo4.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
-        <div class="polaroid" data-label="Add photo5.jpg" style="--r:-5deg"><img src="assets/photo5.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
-        <div class="polaroid" data-label="Add photo6.jpg" style="--r:3deg"><img src="assets/photo6.jpg" alt="A memory of us" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"><p>💫</p></div>
-      </div>
-    </section>
+      <!-- Page 1: Hero, shown right after the confetti burst -->
+      <section class="snap-section hero-section">
+        <h1 class="script-font">Happy Birthday</h1>
+        <h2 class="name script-font">Tanzil 💗</h2>
+        <p class="tagline">Today the world celebrates the best thing that ever happened to me.</p>
+        <button id="confetti-again" class="glow-btn">✨ More confetti, please</button>
+        <div class="scroll-hint">scroll <span>↓</span></div>
+      </section>
 
-    <section class="letter-section reveal">
-      <h3>A little something I wrote for you 💌</h3>
-      <!-- EDIT THIS LETTER: make it yours, add your own memories and words -->
-      <div class="letter-card">
-        <p>Tanzil,</p>
-        <p>
-          I could plan the perfect words for weeks and still fall short of what you mean to me.
-          So let me just say it plainly: you make ordinary days feel like something worth
-          remembering. Your laugh, the way you get excited over the smallest things, the way you
-          show up for the people you love — all of it makes me endlessly grateful that I get to
-          know you.
-        </p>
-        <p>
-          Another year older, and somehow even more incredible than before. I hope today gives you
-          even a fraction of the joy you give everyone around you. Here's to more inside jokes,
-          more late-night conversations, more silly memories, and many, many more birthdays
-          together.
-        </p>
-        <p>Happy Birthday, Tanzil. I love you. 💗</p>
-        <p class="signature">Forever yours,<br>Daksh</p>
-      </div>
-    </section>
+      <!-- Page 2+: One photo per screen, oldest to newest. -->
+      <!-- TO ADD MORE PHOTOS: copy a .photo-section block, point the img src at a new -->
+      <!-- file in assets/, and write your own caption. Keep them ordered youngest -> today. -->
+      <section class="snap-section photo-section">
+        <img src="assets/photo2.jpg" alt="Baby Tanzil" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-overlay"></div>
+        <p class="photo-caption">The very beginning 👶</p>
+      </section>
 
-    <footer>
-      Made with ❤️ by Daksh
-    </footer>
+      <section class="snap-section photo-section">
+        <img src="assets/photo1.jpg" alt="Toddler Tanzil" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-overlay"></div>
+        <p class="photo-caption">Already stealing hearts 🐴</p>
+      </section>
+
+      <section class="snap-section photo-section">
+        <img src="assets/photo3.jpg" alt="Young Tanzil" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-overlay"></div>
+        <p class="photo-caption">Just a little troublemaker 😄</p>
+      </section>
+
+      <section class="snap-section photo-section">
+        <img src="assets/photo4.jpg" alt="School-age Tanzil" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-overlay"></div>
+        <p class="photo-caption">School days & big dreams 🎒</p>
+      </section>
+
+      <section class="snap-section photo-section">
+        <img src="assets/photo5.jpg" alt="Tanzil running" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-overlay"></div>
+        <p class="photo-caption">Running toward every adventure 🌾</p>
+      </section>
+
+      <section class="snap-section photo-section">
+        <img src="assets/photo6.jpg" alt="Tanzil today" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-overlay"></div>
+        <p class="photo-caption">And here you are today ✨</p>
+      </section>
+
+      <!-- Grand finale: photos of the two of you together. -->
+      <!-- TO ADD: drop couple photos into assets/ as us1.jpg, us2.jpg, ... and copy this block. -->
+      <section class="snap-section photo-section us-section">
+        <img src="assets/us1.jpg" alt="The two of us" onerror="this.parentElement.classList.add('no-photo')">
+        <div class="photo-overlay"></div>
+        <p class="photo-caption us-caption">And then, it was us 💑</p>
+      </section>
+
+      <!-- Final page: the letter -->
+      <section class="snap-section letter-section">
+        <h3>A little something I wrote for you 💌</h3>
+        <!-- EDIT THIS LETTER: make it yours, add your own memories and words -->
+        <div class="letter-card">
+          <p>Tanzil,</p>
+          <p>
+            I could plan the perfect words for weeks and still fall short of what you mean to me.
+            So let me just say it plainly: you make ordinary days feel like something worth
+            remembering. Your laugh, the way you get excited over the smallest things, the way you
+            show up for the people you love — all of it makes me endlessly grateful that I get to
+            know you.
+          </p>
+          <p>
+            Another year older, and somehow even more incredible than before. I hope today gives you
+            even a fraction of the joy you give everyone around you. Here's to more inside jokes,
+            more late-night conversations, more silly memories, and many, many more birthdays
+            together.
+          </p>
+          <p>Happy Birthday, Tanzil. I love you. 💗</p>
+          <p class="signature">Forever yours,<br>Daksh</p>
+        </div>
+        <footer>Made with ❤️ by Daksh</footer>
+      </section>
+
+    </div>
   </section>
 
   <!-- Floating music control -->

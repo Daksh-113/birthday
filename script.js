@@ -115,13 +115,15 @@ function startHearts() {
 }
 
 // ===================== SCROLL REVEAL =====================
+// Fades in each full-screen page's photo/caption as it snaps into view.
 function setupScrollReveal() {
-  const targets = document.querySelectorAll(".reveal");
+  const container = document.getElementById("snap-container");
+  const targets = document.querySelectorAll(".snap-section");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) entry.target.classList.add("in-view");
     });
-  }, { threshold: 0.15 });
+  }, { root: container, threshold: 0.5 });
   targets.forEach((t) => observer.observe(t));
 }
 

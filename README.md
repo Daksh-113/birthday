@@ -1,27 +1,37 @@
 # Happy Birthday, Tanzil 🎉💗
 
 A little birthday website: a funny, playful intro that leads into a romantic
-surprise reveal, complete with a photo gallery, a personal letter, floating
-hearts, confetti, and optional background music.
+surprise reveal, told as a full-screen, swipe-through story (like an Apple
+product page) — one photo per screen from her youngest photo to today, ending
+with a photo of the two of you together, then a personal letter. Floating
+hearts, confetti, and optional background music throughout.
 
 ## How it works
 
 1. **Fun intro** — a silly fake "loading" sequence with joke lines, then a
    button that dodges your cursor a few times before you can click it.
 2. **Romantic reveal** — clicking the button triggers a confetti burst and
-   transitions into the romantic section: a big "Happy Birthday, Tanzil"
-   hero, a photo gallery, a personal letter, and floating hearts in the
-   background.
+   transitions into a full-screen scrolling story: hero page ("Happy
+   Birthday, Tanzil"), then one photo per screen (oldest to newest), an "and
+   then it was us" page, and finally the letter. Each page snaps into place
+   as you scroll/swipe, like a native mobile story.
 
 ## Customize it
 
 - **The letter**: open `index.html` and edit the text inside
   `<div class="letter-card">` (search for `EDIT THIS LETTER`). Make it yours!
-- **Photos**: drop your own photos into the `assets` folder, named
-  `photo1.jpg` through `photo6.jpg` (matching each file's extension in
-  `index.html` if it isn't a `.jpg`). All 6 slots are already filled with
-  Tanzil's photos — swap any of them out by replacing the file, or add more
-  by editing the `.gallery-grid` in `index.html`.
+- **Solo photos**: each `<section class="snap-section photo-section">` block
+  in `index.html` is one full-screen page. They're currently wired to
+  `assets/photo1.jpg` – `photo6.jpg` in age order (youngest first) with a
+  caption underneath each `<img>`. To add more, copy a block, point it at a
+  new file in `assets/`, and write your own caption — just keep the blocks in
+  chronological order.
+- **"Us together" photos**: the page right before the letter is the
+  `us-section` block, currently pointed at `assets/us1.jpg` (add that file to
+  fill it in). To add more couple photos, copy that block underneath it,
+  naming new files `us2.jpg`, `us3.jpg`, etc. Any block whose image file is
+  missing just shows a "Add a photo here" placeholder, so it's safe to leave
+  extra ones in for later.
 - **Music**: add an mp3 file to `assets/song.mp3` and it'll be available via
   the 🎵 button in the bottom-right corner once the romantic section loads
   (browsers block autoplay with sound, so it only plays after the button is
